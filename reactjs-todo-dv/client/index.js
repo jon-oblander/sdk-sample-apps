@@ -59,7 +59,6 @@ const config = {
    * authenticated.
    ************************************************************************* */
 
-  console.log('config', config);
   // Create a DaVinci client for the login/reg flow
   const loginClient = await davinciClient({ config });
 
