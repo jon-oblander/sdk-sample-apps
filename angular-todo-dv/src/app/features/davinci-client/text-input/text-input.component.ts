@@ -8,21 +8,18 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-text-input',
   templateUrl: './text-input.component.html',
 })
 export class TextInputComponent {
-  // TODO: Resolve this
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-
-  @Input() collector: any;
-  @Input() updater: any;
+  @Input() key: string;
+  @Input() label: string;
+  @Output() valueUpdated = new EventEmitter<string>();
 
   onChange(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.updater(target.value);
+    this.valueUpdated.emit((event.target as HTMLInputElement).value);
   }
 }

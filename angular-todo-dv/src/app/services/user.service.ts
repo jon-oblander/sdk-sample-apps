@@ -9,6 +9,7 @@
  */
 
 import { Injectable } from '@angular/core';
+import davinciClient from '@forgerock/davinci-client';
 
 /**
  * Used to share user state between components
@@ -26,4 +27,10 @@ export class UserService {
    * State repreesnting previously retrieved user information
    */
   info?: Record<string, unknown>;
+
+  loginClient: unknown = null;
+
+  async initLoginClient(config: unknown): Promise<void> {
+    this.loginClient = await davinciClient({ config });
+  }
 }

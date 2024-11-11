@@ -10,12 +10,12 @@ of the MIT license. See the LICENSE file for details.
 <div class="cstm_form-floating form-floating mb-3">
   <input
     class="cstm_form-control form-control bg-transparent"
-    [id]="collector.output.key"
-    [name]="collector.output.key"
+    [id]="key"
+    [name]="key"
     (change)="onChange($event)"
     type="text"
   />
-  <label [for]="collector.output.key">
-    {{ collector.output.label }}
+  <label [for]="key">
+    {{ label }}
   </label>
 </div>

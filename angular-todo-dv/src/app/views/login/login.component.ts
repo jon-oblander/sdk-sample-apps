@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
     this.isWebAuthn = isWebAuthn;
   }
 
+  onCompleteFlow(): void {
+    this.router.navigateByUrl('/');
+  }
+
   async authorize(code: string, state: string): Promise<void> {
     await TokenManager.getTokens({ query: { code, state } });
     const user = (await UserManager.getCurrentUser()) as Record<string, unknown>;

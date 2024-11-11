@@ -15,9 +15,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './submit-button.component.html',
 })
 export class SubmitButtonComponent {
-  // TODO: Resolve this
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-
-  @Input() collector: any;
+  @Input() key: string;
+  @Input() label: string;
   @Input() submittingForm: boolean;
 }

@@ -8,20 +8,17 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-protect',
   templateUrl: './protect.component.html',
 })
-export class ProtectComponent {
-  // TODO: Resolve this
-  /* eslint-disable @typescript-eslint/no-explicit-any */
+export class ProtectComponent implements OnInit {
+  @Input() label = '';
+  @Output() protectProfile = new EventEmitter<string>();
 
-  @Input() collector: any;
-  @Input() updater: any;
-
-  constructor() {
-    this.updater('fakeprofile');
+  ngOnInit() {
+    this.protectProfile.emit('fakeprofile');
   }
 }

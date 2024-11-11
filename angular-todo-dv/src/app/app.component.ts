@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
      * - realmPath: this is the realm to use within ForgeRock. such as `alpha` or `root`
      * - tree: The authentication journey/tree to use, such as `sdkAuthenticationTree`
      *************************************************************************** */
-
+    console.log(environment);
     const config = {
       clientId: environment.CLIENT_ID,
       redirectUri: environment.REDIRECT_URI,
@@ -76,6 +76,7 @@ export class AppComponent implements OnInit {
       },
     };
 
+    await this.userService.initLoginClient(config);
     await Config.setAsync(config);
 
     /** *****************************************************************

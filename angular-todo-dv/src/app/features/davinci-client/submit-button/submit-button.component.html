@@ -10,14 +10,14 @@ of the MIT license. See the LICENSE file for details.
 <button
   type="submit"
   class="btn btn-primary w-100 mb-2"
-  [value]="collector.output.key"
+  [value]="key"
   [disabled]="submittingForm ? 'disabled' : null"
 >
   <span
     *ngIf="submittingForm"
-    className="spinner-border spinner-border-sm"
+    class="spinner-border spinner-border-sm"
     role="status"
     aria-hidden="true"
   ></span>
-  <span>{{ collector.output.label }}</span>
+  <span>{{ label }}</span>
 </button>

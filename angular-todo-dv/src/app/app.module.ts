@@ -34,7 +34,6 @@ import { KeyIconComponent } from './icons/key-icon/key-icon.component';
 import { EyeIconComponent } from './icons/eye-icon/eye-icon.component';
 import { AlertIconComponent } from './icons/alert-icon/alert-icon.component';
 import { VerifiedIconComponent } from './icons/verified-icon/verified-icon.component';
-import { RegisterComponent } from './views/register/register.component';
 import { LockIconComponent } from './icons/lock-icon/lock-icon.component';
 import { NewUserIconComponent } from './icons/new-user-icon/new-user-icon.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -48,6 +47,7 @@ import { ActionIconComponent } from './icons/action-icon/action-icon.component';
 import { GoogleIconComponent } from './icons/google-icon/google-icon.component';
 import { AppleIconComponent } from './icons/apple-icon/apple-icon.component';
 import { FingerPrintIconComponent } from './icons/finger-print-icon/finger-print-icon.component';
+import { DaVinciFlowComponent } from './features/davinci-client/davinci-flow/davinci-flow.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { FingerPrintIconComponent } from './icons/finger-print-icon/finger-print
     LoginComponent,
     HomeComponent,
     TodosComponent,
+    DaVinciFlowComponent,
     ErrorMessageComponent,
     FlowButtonComponent,
     PasswordComponent,
@@ -71,7 +72,6 @@ import { FingerPrintIconComponent } from './icons/finger-print-icon/finger-print
     EyeIconComponent,
     AlertIconComponent,
     VerifiedIconComponent,
-    RegisterComponent,
     LockIconComponent,
     NewUserIconComponent,
     HeaderComponent,

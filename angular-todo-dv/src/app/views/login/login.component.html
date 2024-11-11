@@ -17,17 +17,7 @@ of the MIT license. See the LICENSE file for details.
           <app-key-icon size="72px"></app-key-icon>
         </ng-container>
       </div>
-
-      <!-- <app-form
-          [action]="'login'"
-          [journey]="journey"
-          (isWebAuthn)="onSetIsWebAuthn($event)"
-        ></app-form> -->
-
-      <p class="text-center text-secondary p-3">
-        Don’t have an account?
-        <a [routerLink]="'/register'">Sign up here!</a>
-      </p>
+      <app-davinci-flow (flowComplete)="onCompleteFlow()"></app-davinci-flow>
     </div>
   </div>
 </div>

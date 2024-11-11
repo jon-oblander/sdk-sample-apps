@@ -8,18 +8,16 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
 })
 export class PasswordComponent {
-  // TODO: Resolve this
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-
-  @Input() collector: any;
-  @Input() updater: any;
+  @Input() key: string;
+  @Input() label: string;
+  @Output() valueUpdated = new EventEmitter<string>();
 
   isVisible = false;
 
@@ -27,7 +25,7 @@ export class PasswordComponent {
     this.isVisible = !this.isVisible;
   }
 
-  updateValue(event): void {
-    this.updater(event.target.value);
+  updateValue(event: Event): void {
+    this.valueUpdated.emit((event.target as HTMLInputElement).value);
   }
 }
