@@ -10,6 +10,7 @@
 
 import { Injectable } from '@angular/core';
 import davinciClient from '@forgerock/davinci-client';
+import { UserManager } from '@forgerock/javascript-sdk';
 
 /**
  * Used to share user state between components
@@ -32,5 +33,11 @@ export class UserService {
 
   async initLoginClient(config: unknown): Promise<void> {
     this.loginClient = await davinciClient({ config });
+  }
+
+  async populateUserInfo(): Promise<void> {
+    const info = (await UserManager.getCurrentUser()) as Record<string, unknown>;
+    this.isAuthenticated = true;
+    this.info = info;
   }
 }

@@ -8,7 +8,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { TokenManager, UserManager } from '@forgerock/javascript-sdk';
+import { TokenManager } from '@forgerock/javascript-sdk';
 import { UserService } from '../../../services/user.service';
 
 interface Collector {
@@ -34,9 +34,10 @@ interface Collector {
   templateUrl: './davinci-flow.component.html',
 })
 export class DaVinciFlowComponent implements OnInit {
-  // TODO: Resolve this
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   @Output() flowComplete = new EventEmitter<void>();
+
+  // TODO: Get proper typings and delete this and the next line
+  /* eslint-disable @typescript-eslint/no-explicit-any */
 
   davinciClient: any;
   isSubmittingForm = false;
@@ -83,9 +84,7 @@ export class DaVinciFlowComponent implements OnInit {
 
     await TokenManager.getTokens({ query: { code, state } });
 
-    const info = (await UserManager.getCurrentUser()) as Record<string, unknown>;
-    this.userService.isAuthenticated = true;
-    this.userService.info = info;
+    await this.userService.populateUserInfo();
     this.flowComplete.emit();
   }
 
@@ -103,7 +102,7 @@ export class DaVinciFlowComponent implements OnInit {
     }
   }
 
-  async onFlowButtonClicked(collector: any) {
+  async onFlowButtonClicked(collector: Collector) {
     const flow = this.davinciClient.flow({ action: collector.output.key });
     const node = await flow(collector.output.key);
     this.renderForm(node);
